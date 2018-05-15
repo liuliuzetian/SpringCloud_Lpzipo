@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: lpzipo-config
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/liuliuzetian/configRespo.git   #  配置git仓库位置
+          search-paths:                                      #配置仓库路径下的相对搜索位置，可以配置多个
+          username:                                           # 用户名
+          password:                                           # 密码
+
+server:
+  port: 9100
+
+eureka:
+    instance:
+        statusPageUrlPath: /info
+        healthCheckUrlPath: /health
+        # docker 部署开启
+#        prefer-ip-address: true
+#        ip-address: 127.0.0.1
+    client:
+        serviceUrl:
+#            defaultZone: http://localhost:8761/eureka/
+                    # docker 部署开启
+            defaultZone: http://127.0.0.1:9000/eureka/
